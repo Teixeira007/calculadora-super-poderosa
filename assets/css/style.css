@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+:root{
+    --primary-color: rgb(12, 153, 130);
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    background: var(--primary-color);
+}
+
+.container{
+    max-width: 350px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.calculation-field{
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 95%;
+}
+
+button{
+    padding: 5px;
+    height:40px;
+    width: 65px;
+}
+
+.div-temperature{
+    display: flex;
+    justify-content: space-between;
+    visibility: hidden;
+}
+.div-temperature .btn{
+    width: 110px;
+    padding: 5px;
+}
+
+.div-input-temperature{
+    width: 110px;
+}
+
+.div-temperature input{
+    width: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+td{
+    margin: 5px;
+}
+
+tr{
+    margin-top: 5px;
+}
+
+.div-temperature table tr td input{
+    padding: 10px;
+    width: 85px;
+}
+  
+ 
