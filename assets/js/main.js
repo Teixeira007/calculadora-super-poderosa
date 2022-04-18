@@ -9,7 +9,6 @@ const divTemperature = document.querySelector('.div-temperature');
 
 
 
-
 document.addEventListener('click',  function(event){
     const element = event.target;
     // let calculadoraValue = calculationField.value;
@@ -89,9 +88,13 @@ document.addEventListener('click',  function(event){
         calculationField.value += " E ";
     }
     if(element.classList.contains('temperature')){
-        divTemperature.style.visibility = "visible";
+        divTemperature.style.display = 'block';
         temperatureConverter();
     }
+    // if(element.classList.contains('currency')){
+    //     divTemperature.style.visibility = "visible";
+    //     temperatureConverter();
+    // }
     
 });
 
@@ -167,6 +170,7 @@ function equality(){
 function clearField(){
     calculationField.value = '';
 }
+
 
 function temperatureConverter(){
     document.addEventListener('click', function(event){

@@ -37,16 +37,32 @@ button{
 .div-temperature{
     display: flex;
     justify-content: space-between;
-    visibility: hidden;
+    display: none;
 }
-.div-temperature .btn{
+
+.div-temperature .btn {
     width: 110px;
     padding: 5px;
 }
 
+/* .div-currency .btn{
+    width: 110px;
+    padding: 5px;
+} */
+
+
+/* .div-currency{
+    display: flex;
+    justify-content: space-between;
+} */
 .div-input-temperature{
     width: 110px;
 }
+/* .div-currency input{
+    width: 20px;
+    margin: 0;
+    padding: 0;
+} */
 
 .div-temperature input{
     width: 20px;
@@ -66,5 +82,10 @@ tr{
     padding: 10px;
     width: 85px;
 }
+
+/* .div-currency table tr td input{
+    padding: 10px;
+    width: 85px;
+} */
   
  
