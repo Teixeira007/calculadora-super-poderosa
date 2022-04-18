@@ -173,6 +173,13 @@ function whichOperation(operation, arrayNumbers){
     }
 }
 
+calculationField.addEventListener('keypress', function(event){
+    if(!calculationField) return;
+    if(event.keyCode === 13){
+        equality();
+    }
+});
+
 // Called when equal sign is selected
 function equality(){
     let arrayNumbers = calculationField.value.split(' ');
