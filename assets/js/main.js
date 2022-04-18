@@ -4,6 +4,12 @@ const calculationField = document.querySelector('.calculation-field');
 const numberZero = document.querySelector('.number-zero');
 const divTemperature = document.querySelector('.div-temperature');
 const divCurrency = document.querySelector('.div-currency');
+const temperatureCelsiu = document.querySelector('.celsius-input');
+const temperatureKelvin = document.querySelector('.kelvin-input');
+const temperatureFahrenheit = document.querySelector('.fahrenheit-input');
+const currencyReal =  document.querySelector('.real-input');
+const currencyDolar =  document.querySelector('.dolar-input');
+const currencyEuro =  document.querySelector('.euro-input'); 
 
 
 document.addEventListener('click',  function(event){
@@ -111,6 +117,10 @@ document.addEventListener('click',  function(event){
         divCurrency.style.display = "block";
         currencyConverter()
     }
+
+    if(element.classList.contains('btn-historic')){
+        createDivHistoric();
+    }
     
 });
 
@@ -173,12 +183,15 @@ function whichOperation(operation, arrayNumbers){
     }
 }
 
+// event to get the input value when the enter key is pressed
 calculationField.addEventListener('keypress', function(event){
     if(!calculationField) return;
     if(event.keyCode === 13){
         equality();
     }
 });
+
+
 
 // Called when equal sign is selected
 function equality(){
@@ -193,8 +206,11 @@ function equality(){
         const resultado  = whichOperation(operation, arrayNumbers);
         calculationField.value = resultado;
     }
-        
+    
+    getHistoric(Number(calculationField.value));
+    saveHistoricInput(calculationField.value);
     arrayNumbers = [];
+
 }
 
 // Clear calculator main field
@@ -216,9 +232,7 @@ function clearFieldsCurrency(){
     currencyEuro.value = '';
 }
 
-const temperatureCelsiu = document.querySelector('.celsius-input');
-const temperatureKelvin = document.querySelector('.kelvin-input');
-const temperatureFahrenheit = document.querySelector('.fahrenheit-input');
+
 
 // get temperature button event
 function temperatureConverter(){
@@ -285,10 +299,6 @@ function currencyConverter(){
     });
 }
 
-const currencyReal =  document.querySelector('.real-input');
-const currencyDolar =  document.querySelector('.dolar-input');
-const currencyEuro =  document.querySelector('.euro-input');
-
 // converter from real to other currencies
 function converterDeReal(){
     let real = Number(currencyReal.value);
@@ -322,4 +332,48 @@ function showCurrency(real, dolar, euro){
     currencyDolar.value = dolar.toFixed(2);
     currencyEuro.value = euro.toFixed(2);
 }
+
+
+let arrayHistoric = [];
+
+function saveHistoricInput(lastValue){
+    arrayHistoric.push(Number(lastValue));
+    // console.log(arrayHistoric);
+
+    const stringJSON = JSON.stringify(arrayHistoric);
+    localStorage.setItem('historic', stringJSON);
+}
+
+function recoverHistoricInput(){
+    const recoverString = localStorage.getItem('historic');
+    const recoverArray = JSON.parse(recoverString);
+
+    for(let i of recoverArray){
+        getHistoric(i);
+    }
+    
+}
+
+const historic = document.querySelector('.historic');
+function createDivHistoric(){
+    historic.style.display = "block";
+    
+}
+
+function getHistoric(i){
+    let numberP = historic.querySelectorAll("p");
+    if(numberP.length < 7){
+        const p = document.createElement('p');
+        p.innerText = i.toFixed(3);
+        p.classList.add('historic-p');
+        historic.appendChild(p);
+    }
+    else{
+        historic.removeChild(numberP[0]);
+        getHistoric(Number(calculationField.value));
+    }
+
+}
+recoverHistoricInput();
+
 

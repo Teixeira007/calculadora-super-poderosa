@@ -40,7 +40,7 @@ button{
     display: none;
 }
 
-.div-temperature .btn {
+.div-temperature  .btn{
     width: 110px;
     padding: 5px;
 }
@@ -49,6 +49,7 @@ button{
     width: 110px;
     padding: 5px;
 } 
+
 
 
 .div-currency{
@@ -88,5 +89,53 @@ tr{
     padding: 10px;
     width: 85px;
 }
+
+.field-input{
+    /* background-color: red; */
+    position: relative;
+    width: 95%;
+    /* display: flex; */
+    height: 46px;
+
+}
+.field-input input{
+    width: 100%;
+}
+.field-input i{
+    width: 10%;
+}
+
+.field-input button{
+  position:absolute;
+  top: 3px; right:-20px;
+  z-index:10;
+  border:none;
+  background:transparent;
+  outline:none;
+  cursor: pointer;
+}
+
   
- 
+ .historic{
+     background-color: #ffffff;
+     height: 310px;
+     position: absolute;
+     top: 50px;
+     right: 10px;
+     left: 880px;
+     width: 150px;
+     border-radius: 5%;
+     display: none;
+ }
+
+ .historic-input{
+    padding: 10px;
+    width: 85px;
+ }
+ .historic-p{
+     /* padding: 10px;
+      */
+      margin-left: 40px;
+      margin-bottom: 0;
+      line-height: 1em;
+ }
